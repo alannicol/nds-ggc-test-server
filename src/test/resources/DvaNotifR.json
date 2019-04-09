@@ -1,0 +1,84 @@
+{
+  "resourceType": "Bundle",
+  "id": "32e975e8-1002-4ece-9b50-48b62fac106a",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:50cce60c-00b6-499e-84f0-3ee085d6f75d",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "50cce60c-00b6-499e-84f0-3ee085d6f75d",
+        "timestamp": "2018-11-30T12:29:36.596+00:00",
+        "event": {
+          "system": "https://digitalhealthplatform.scot/fhir/messagetypes",
+          "code": "DvaNotifR"
+        },
+        "source": {
+          "name": "DHP"
+        },
+        "destination": [
+          {
+            "name": "Lenus"
+          }
+        ],
+        "data": [
+          {
+            "reference": "urn:uuid:3953ad6d-07e5-4e79-9446-1eeadd150836"
+          },
+          {
+            "reference": "urn:uuid:5e4901f7-0439-4c02-8c1a-2a10f6182836"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3953ad6d-07e5-4e79-9446-1eeadd150836",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "3953ad6d-07e5-4e79-9446-1eeadd150836",
+        "status": "booked",
+        "type": {
+          "text": "Dermatology Virtual"
+        },
+        "description": "A Dermatology virtual appointment has been scheduled for you.",
+        "start": "2018-12-07T12:29:26.587+00:00",
+        "end": "2018-12-07T13:29:26.588+00:00",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:5e4901f7-0439-4c02-8c1a-2a10f6182836"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5e4901f7-0439-4c02-8c1a-2a10f6182836",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5e4901f7-0439-4c02-8c1a-2a10f6182836",
+        "name": [
+          {
+            "family": [
+              "User"
+            ],
+            "given": [
+              "Jane"
+            ]
+          }
+        ],
+        "contact": [
+          {
+            "telecom": [
+              {
+                "system": "email",
+                "value": "HSCPortalTest1@gmail.com",
+                "use": "home"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
