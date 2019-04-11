@@ -41,11 +41,11 @@ public class DVANotifProviderTest {
 
     @Test
     public void testNewDVANotifProvider() throws Exception {
-        MethodOutcome methodOutcome;
+        Bundle bundle;
 
-        methodOutcome = dvaNotifProvider.newDVANotifProvider((createBundle()));
+        bundle = dvaNotifProvider.newDVANotifProvider((createBundle()));
 
-        assertNotNull(methodOutcome);
+        assertNotNull(bundle);
     }
 
     private Bundle createBundle() {
