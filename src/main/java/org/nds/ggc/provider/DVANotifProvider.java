@@ -9,7 +9,6 @@ import ca.uhn.fhir.model.primitive.IdDt;
 import ca.uhn.fhir.model.primitive.InstantDt;
 import ca.uhn.fhir.model.primitive.StringDt;
 import ca.uhn.fhir.rest.annotation.*;
-import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import org.hl7.fhir.instance.model.api.IBaseResource;
@@ -33,11 +32,13 @@ public class DVANotifProvider implements IResourceProvider {
         context = FhirContext.forDstu2();
 
         executor = Executors.newSingleThreadScheduledExecutor();
-        client = context.newRestfulGenericClient("http://localhost:8080/nds-dhp-server");
+        client = context.newRestfulGenericClient("https://dvp-tomcat.azurewebsites.net/nds-dvp-server/fhir");
     }
 
     @Transaction()
     public Bundle newDVANotifProvider(@TransactionParam Bundle bundle) {
+
+        Bundle returnBundle;
 
         logger.info("POST DVA Notif");
         logger.info("Server Received {}",prettyPrint(bundle));
@@ -48,7 +49,11 @@ public class DVANotifProvider implements IResourceProvider {
 
         logger.info("Server Responding");
 
-        return bundle;
+        returnBundle = new Bundle();
+        returnBundle.setId(bundle.getId());
+        returnBundle.setType(BundleTypeEnum.MESSAGE);
+
+        return returnBundle;
     }
 
     private String prettyPrint(IBaseResource resource) {
